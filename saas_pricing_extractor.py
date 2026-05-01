@@ -1,11 +1,26 @@
-from firecrawl import Firecrawl
+from firecrawl import FirecrawlApp
 from dotenv import load_dotenv
 import os
+import sys
 
 load_dotenv()
 
 api_key = os.getenv("FIRECRAWL_API_KEY")
 
-firecrawl = Firecrawl(api_key=api_key)
+firecrawl = FirecrawlApp(api_key=api_key)
 
-print(firecrawl.scrape('firecrawl.dev'))
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python main.py <url>")
+        return
+
+    url = sys.argv[1]
+
+    res = firecrawl.scrape(url)
+    markdown = res.markdown
+
+    print(markdown[:3000])
+
+
+if __name__ == '__main__':
+    main()
