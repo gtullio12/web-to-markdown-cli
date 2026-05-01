@@ -23,7 +23,7 @@ Create a .env file in the project root with contents:
 `FIRECRAWL_API_KEY=your_api_key_here`
 
 
-Run: `python saas_pricing_extractor.py https://firecrawl.dev`
+Run: `python firecrawl_scraper.py https://firecrawl.dev`
 
 ### Example Output
 ================================================================================
